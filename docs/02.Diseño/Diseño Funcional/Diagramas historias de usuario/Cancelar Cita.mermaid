@@ -1,0 +1,11 @@
+graph TD
+    A[Inicio: Ver mis citas] --> B[Seleccionar Cita a Cancelar]
+    B --> C{¿Faltan > 24 horas?}
+
+    C -- Sí --> D[Ingresar motivo de cancelación]
+    D --> E[Actualizar estado a 'Cancelada']
+    E --> F[Liberar horario en calendario]
+    
+    B -- No --> H[Mostrar opción 'Contacto Directo Admin']
+    F --> I[Fin]
+    H --> I

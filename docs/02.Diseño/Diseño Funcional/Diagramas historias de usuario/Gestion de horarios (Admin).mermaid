@@ -1,0 +1,9 @@
+graph TD
+    A[Inicio: Configuración de Negocio] --> B[Definir Jornada Regular]
+    B --> C[Agregar Intervalos de Descanso/Almuerzo]
+    C --> D{¿Hay fechas especiales?}
+    D -- Sí --> E[Marcar Días no laborables/Vacaciones]
+    D -- No --> F[Guardar Configuración]
+    E --> F
+    F --> G[Sistema bloquea slots automáticamente]
+    G --> H[Fin]

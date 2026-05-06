@@ -1,0 +1,12 @@
+stateDiagram-v2
+    [*] --> Pendiente: Reserva realizada por cliente
+    Pendiente --> Confirmada: Administrador confirma
+    Pendiente --> Rechazada: Administrador rechaza
+    Pendiente --> Cancelada: Cliente o Administrador cancela
+    Confirmada --> Cancelada: Cliente o Administrador cancela
+    Confirmada --> Completada: Cliente acudió y servicios realizados
+    Confirmada --> NoPresento: Cliente no se presentó y no avisó
+    Rechazada --> [*]: Fin
+    Cancelada --> [*]: Fin
+    Completada --> [*]: Fin
+    NoPresento --> [*]: Fin

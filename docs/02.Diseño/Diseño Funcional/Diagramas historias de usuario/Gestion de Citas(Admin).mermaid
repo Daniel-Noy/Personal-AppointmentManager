@@ -1,0 +1,12 @@
+graph TD
+    A[Inicio: Dashboard Admin] --> B[Filtrar citas por fecha/estado]
+    B --> C[Seleccionar cita 'Pendiente']
+    C --> D{Acción a realizar}
+    D -- Confirmar --> E[Estado: Confirmada]
+    D -- Rechazar --> F[Ingresar motivo y Estado: Rechazada]
+    D -- Cancelar --> G[Estado: Cancelada por Admin]
+    E --> H[Agregar notas internas opcionales]
+    F --> I[Notificar al Cliente]
+    G --> I
+    H --> I
+    I --> J[Fin]

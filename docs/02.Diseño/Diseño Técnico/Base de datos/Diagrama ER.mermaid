@@ -1,0 +1,91 @@
+erDiagram
+
+    users ||--|| roles : "tiene asignado"
+    services ||--|| service_categories: "pertenece a"
+    products ||--|| product_categories: "pertenece a"
+    appointments ||--|| appointment_statuses: "tiene estado"
+    users ||--|{ appointments : "agenda"
+
+    %% Tablas intermedias (Many-to-Many)
+    appointments ||--|{ service_appointments : "incluye"
+    appointments ||--o{ product_appointments : "puede incluir"
+    services }|--|{ service_appointments : "forma parte de"
+    products }|--|{ product_appointments : "forma parte de"
+
+    users {
+        bigint id PK
+        varchar(255) name
+        varchar(255) email PK
+        timestamp email_verified_at 
+        varchar(255) password
+        varchar(100) remember_token 
+        timestamp created_at
+        timestamp updated_at
+        bigint role_id FK
+    }
+
+    roles {
+        bigint id PK
+        varchar(50) name
+    }
+
+    services {
+        bigint id PK
+        varchar(255) name
+        decimal(10) price
+        int duration_minutes
+        text description 
+        boolean is_visible
+        bigint service_category_id FK
+    }
+
+    service_categories {
+        bigint id PK
+        varchar(100) name
+    }
+
+    products {
+        bigint id PK
+        varchar(255) name
+        decimal price
+        int duration_minutes
+        text description 
+        boolean is_visible
+        bigint product_category_id FK
+    }
+
+    product_categories {
+        bigint id PK
+        varchar(100) name
+    }
+
+    appointments {
+        bigint id PK
+        timestamp scheduled_at
+        varchar(500) cancellation_reason 
+        bigint user_id FK
+        bigint status_id FK
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    appointment_statuses {
+        bigint id PK
+        varchar(100) name
+    }
+
+    service_appointments {
+        bigint id PK
+        bigint appointment_id FK
+        bigint service_id FK
+        int amount
+        timestamp created_at
+    }
+    
+    product_appointments {
+        bigint id PK
+        bigint appointment_id FK
+        bigint product_id FK
+        int amount
+        timestamp created_at
+    }

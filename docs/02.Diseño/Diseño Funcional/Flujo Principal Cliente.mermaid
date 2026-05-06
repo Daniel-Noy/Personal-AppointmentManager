@@ -1,0 +1,20 @@
+graph TD
+    A[Inicio: Usuario llega al sitio] --> B{¿Autenticado?}
+    B -->|No| C[Registro/Login]
+    C --> D[Dashboard Cliente]
+    B -->|Sí| D
+
+    D --> E[Ver Catálogo de Servicios]
+    E --> F[Reservar Cita]
+    F --> G[Seleccionar Servicios]
+    G --> H[Seleccionar Productos Opcionales]
+    H --> I[Elegir Fecha/Hora en Calendario]
+    I --> J[Confirmar Reserva]
+    J --> K[Ver Mis Citas]
+    K --> L{Cancelar Cita?}
+    L -->|Sí| M[Cancelar con Motivo]
+    L -->|No| N[Ver Historial]
+    N --> O[Editar Perfil]
+    O --> D
+
+    M --> K

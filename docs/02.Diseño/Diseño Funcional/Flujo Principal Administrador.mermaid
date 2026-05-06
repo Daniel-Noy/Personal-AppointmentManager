@@ -1,0 +1,29 @@
+graph TD
+    A[Inicio: Admin llega al sitio] --> B{¿Autenticado?}
+    B -->|No| C[Login Admin]
+    C --> D[Dashboard Admin]
+    B -->|Sí| D
+
+    D --> E[Ver Calendario de Citas]
+    E --> F[Gestionar Citas]
+    F --> G[Confirmar/Rechazar/Cancelar Citas]
+    G --> H[Agregar Notas]
+    H --> I[Filtrar Citas por Estado/Fecha]
+
+    D --> J[Gestionar Servicios/Productos]
+    J --> K[Crear/Editar/Eliminar Servicios]
+    K --> L[Activar/Desactivar Servicios]
+
+    D --> M[Configurar Horarios]
+    M --> N[Definir Jornada Regular]
+    N --> O[Agregar Descansos]
+    O --> P[Marcar Días No Laborables]
+
+    D --> Q[Ver Reportes/Historial]
+    Q --> R[Histórico de Operaciones]
+    R --> S[Reportes de Cancelaciones]
+
+    I --> D
+    L --> D
+    P --> D
+    S --> D

@@ -1,0 +1,20 @@
+graph TD
+    INICIO(Incio: Cliente busca cita) -->
+    A{Esta autenticado?}
+    A -- Sí --> DISPONIBLE
+    A -- No --> AUTENTICAR[Iniciar Sesión]
+    AUTENTICAR --> DISPONIBLE
+
+    DISPONIBLE{Tiene < 2 citas pendientes}
+    DISPONIBLE -- Sí--> B[Ver Catálogo de Servicios]
+    DISPONIBLE -- No --> NO_DISPONIBLE[Error: Limite de citas alcanzado ]
+    NO_DISPONIBLE --> FIN
+
+    B --> C[Seleccionar Servicios y Productos Opcionales]
+    C --> D[Consultar Calendario Tiempo Real]
+    D --> E{¿Horario disponible?}
+    E -- No --> D
+    E -- Sí --> H[Confirmar Reserva]
+    H --> I[Sistema registra cita como 'Pendiente']
+    I --> J[Notificación de Confirmación]
+    J --> FIN[Fin]
