@@ -94,11 +94,7 @@ return new class extends Migration
 
         // --- Tablas intermedias (Many-to-Many) ---
 
-<<<<<<< HEAD
-        Schema::create('service_appointments', function (Blueprint $table) {
-=======
         Schema::create('appointment_service', function (Blueprint $table) {
->>>>>>> dev
             $table->id();
             $table->foreignId('appointment_id')
                 ->constrained('appointments')
@@ -109,11 +105,7 @@ return new class extends Migration
             $table->timestamp('created_at')->useCurrent();
         });
 
-<<<<<<< HEAD
-        Schema::create('product_appointments', function (Blueprint $table) {
-=======
         Schema::create('appointment_product', function (Blueprint $table) {
->>>>>>> dev
             $table->id();
             $table->foreignId('appointment_id')
                 ->constrained('appointments')
@@ -131,13 +123,8 @@ return new class extends Migration
     public function down(): void
     {
         // Orden inverso para respetar foreign keys
-<<<<<<< HEAD
-        Schema::dropIfExists('product_appointments');
-        Schema::dropIfExists('service_appointments');
-=======
         Schema::dropIfExists('appointment_product');
         Schema::dropIfExists('appointment_service');
->>>>>>> dev
         Schema::dropIfExists('appointments');
         Schema::dropIfExists('products');
         Schema::dropIfExists('services');
