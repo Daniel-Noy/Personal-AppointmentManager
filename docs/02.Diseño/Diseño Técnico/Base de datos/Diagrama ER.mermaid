@@ -1,16 +1,17 @@
 erDiagram
 
     users ||--|| roles : "tiene asignado"
+    users ||--|| user_profiles : "tiene perfil"
     services ||--|| service_categories: "pertenece a"
     products ||--|| product_categories: "pertenece a"
     appointments ||--|| appointment_statuses: "tiene estado"
     users ||--|{ appointments : "agenda"
 
     %% Tablas intermedias (Many-to-Many)
-    appointments ||--|{ service_appointments : "incluye"
-    appointments ||--o{ product_appointments : "puede incluir"
-    services }|--|{ service_appointments : "forma parte de"
-    products }|--|{ product_appointments : "forma parte de"
+    appointments ||--|{ appointment_service : "incluye"
+    appointments ||--o{ appointment_product : "puede incluir"
+    services }|--|{ appointment_service : "forma parte de"
+    products }|--|{ appointment_product : "forma parte de"
 
     users {
         bigint id PK
@@ -24,6 +25,15 @@ erDiagram
         bigint role_id FK
     }
 
+    user_profiles {
+        bigint id PK
+        bigint user_id FK
+        varchar(20) phone_number
+        varchar(255) profile_photo_url
+        timestamp created_at
+        timestamp updated_at
+    }
+
     roles {
         bigint id PK
         varchar(50) name
@@ -35,6 +45,7 @@ erDiagram
         decimal(10) price
         int duration_minutes
         text description 
+        varchar(255) image_url
         boolean is_visible
         bigint service_category_id FK
     }
@@ -48,8 +59,8 @@ erDiagram
         bigint id PK
         varchar(255) name
         decimal price
-        int duration_minutes
         text description 
+        varchar(255) image_url
         boolean is_visible
         bigint product_category_id FK
     }
@@ -74,7 +85,7 @@ erDiagram
         varchar(100) name
     }
 
-    service_appointments {
+    appointment_service {
         bigint id PK
         bigint appointment_id FK
         bigint service_id FK
@@ -82,7 +93,7 @@ erDiagram
         timestamp created_at
     }
     
-    product_appointments {
+    appointment_product {
         bigint id PK
         bigint appointment_id FK
         bigint product_id FK
