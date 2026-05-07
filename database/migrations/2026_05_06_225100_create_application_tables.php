@@ -102,7 +102,7 @@ return new class extends Migration
             $table->foreignId('service_id')
                 ->constrained('services');
             $table->integer('amount');
-            $table->timestamp('created_at')->useCurrent();
+            $table->timestamps();
         });
 
         Schema::create('appointment_product', function (Blueprint $table) {
@@ -113,7 +113,7 @@ return new class extends Migration
             $table->foreignId('product_id')
                 ->constrained('products');
             $table->integer('amount');
-            $table->timestamp('created_at')->useCurrent();
+            $table->timestamps();
         });
     }
 
