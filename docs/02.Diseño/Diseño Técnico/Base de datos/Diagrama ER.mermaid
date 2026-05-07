@@ -8,10 +8,10 @@ erDiagram
     users ||--|{ appointments : "agenda"
 
     %% Tablas intermedias (Many-to-Many)
-    appointments ||--|{ service_appointments : "incluye"
-    appointments ||--o{ product_appointments : "puede incluir"
-    services }|--|{ service_appointments : "forma parte de"
-    products }|--|{ product_appointments : "forma parte de"
+    appointments ||--|{ appointment_service : "incluye"
+    appointments ||--o{ appointment_product : "puede incluir"
+    services }|--|{ appointment_service : "forma parte de"
+    products }|--|{ appointment_product : "forma parte de"
 
     users {
         bigint id PK
@@ -59,7 +59,6 @@ erDiagram
         bigint id PK
         varchar(255) name
         decimal price
-        int duration_minutes
         text description 
         varchar(255) image_url
         boolean is_visible
@@ -86,7 +85,7 @@ erDiagram
         varchar(100) name
     }
 
-    service_appointments {
+    appointment_service {
         bigint id PK
         bigint appointment_id FK
         bigint service_id FK
@@ -94,7 +93,7 @@ erDiagram
         timestamp created_at
     }
     
-    product_appointments {
+    appointment_product {
         bigint id PK
         bigint appointment_id FK
         bigint product_id FK
