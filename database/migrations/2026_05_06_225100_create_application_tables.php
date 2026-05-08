@@ -41,6 +41,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->foreignId('role_id')
                 ->after('remember_token')
+                ->default(1)
                 ->constrained('roles');
         });
 
