@@ -8,10 +8,10 @@
     /* Brand Colors */
     --color-primary: #3A3D32;
     --color-primary-foreground: #FFFFFF;
-    
+
     --color-secondary: #D9C5B2;
     --color-secondary-foreground: #2F3131;
-    
+
     --color-accent: #A68966;
     --color-accent-foreground: #FFFFFF;
 
@@ -31,7 +31,7 @@
     /* Typography */
     --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     --font-heading: 'Playfair Display', ui-serif, Georgia, serif;
-    
+
     /* Radii */
     --radius-sm: 4px;
     --radius-md: 8px;
@@ -50,7 +50,13 @@
     body {
         @apply bg-background text-foreground font-sans antialiased;
     }
-    h1, h2, h3, h4, h5, h6 {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         @apply font-heading text-foreground;
     }
 }
