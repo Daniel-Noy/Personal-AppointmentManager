@@ -19,8 +19,9 @@ class LoginController extends Controller
     public function store(LoginRequest $request): RedirectResponse
     {
         $credentials = $request->validated();
+        $remember = $request->boolean("remember");
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
  
             return redirect()->intended(route('home'));
@@ -36,7 +37,7 @@ class LoginController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('home');
+        return redirect()->route('home');
     }
 
     
