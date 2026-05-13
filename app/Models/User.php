@@ -33,6 +33,11 @@ class User extends Authenticatable
         ];
     }
 
+    public function isAdmin(): bool
+    {
+        return $this->role_id === 2;
+    }
+
     public function profile(): HasOne
     {
         return $this->hasOne(UserProfile::class);

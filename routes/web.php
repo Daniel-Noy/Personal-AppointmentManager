@@ -6,3 +6,6 @@ Route::inertia('/', 'landing/pages/Index')->name('home');
 
 // Rutas de autenticación
 require __DIR__.'/auth.php';
+
+// Rutas de administrador
+require __DIR__.'/admin.php';
