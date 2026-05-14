@@ -6,30 +6,32 @@
 
 @theme {
     /* Brand Colors */
-    --color-primary: #3A3D32;
-    --color-primary-foreground: #FFFFFF;
+    --color-primary: #3a3d32;
+    --color-primary-foreground: #ffffff;
 
-    --color-secondary: #D9C5B2;
-    --color-secondary-foreground: #2F3131;
+    --color-secondary: #d9c5b2;
+    --color-secondary-foreground: #2f3131;
 
-    --color-accent: #A68966;
-    --color-accent-foreground: #FFFFFF;
+    --color-accent: #a68966;
+    --color-accent-foreground: #ffffff;
 
-    --color-background: #F9F8F6;
-    --color-foreground: #2F3131;
+    --color-background: #f9f8f6;
+    --color-foreground: #2f3131;
 
-    --color-muted: #F2E8DF;
-    --color-muted-foreground: #2F3131;
+    --color-muted: #f2e8df;
+    --color-muted-foreground: #2f3131;
 
-    --color-card: #FFFFFF;
-    --color-card-foreground: #2F3131;
+    --color-card: #ffffff;
+    --color-card-foreground: #2f3131;
 
-    --color-border: #D9C5B2;
-    --color-input: #D9C5B2;
-    --color-ring: #3A3D32;
+    --color-border: #d9c5b2;
+    --color-input: #d9c5b2;
+    --color-ring: #3a3d32;
 
     /* Typography */
-    --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans:
+        'Manrope', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+        'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     --font-heading: 'Playfair Display', ui-serif, Georgia, serif;
 
     /* Radii */
@@ -48,7 +50,7 @@
 
 @layer base {
     body {
-        @apply bg-background text-foreground font-sans antialiased;
+        @apply bg-background font-sans text-foreground antialiased;
     }
 
     h1,

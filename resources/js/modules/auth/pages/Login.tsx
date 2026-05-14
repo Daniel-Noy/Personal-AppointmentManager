@@ -1,65 +1,75 @@
-import { store } from '@/actions/App/Http/Controllers/Auth/LoginController';
 import { Form, Link } from '@inertiajs/react';
 import { Mail, Lock, ArrowRight } from 'lucide-react';
+import { store } from '@/actions/App/Http/Controllers/Auth/LoginController';
 
 export default function Login() {
     return (
-        <div className="min-h-screen flex items-center justify-center bg-background font-sans p-4">
-            <div className="w-full max-w-md bg-white p-8 md:p-10 rounded-md shadow-level-1 border border-border/50">
-
+        <div className="flex min-h-screen items-center justify-center bg-background p-4 font-sans">
+            <div className="w-full max-w-md rounded-md border border-border/50 bg-white p-8 shadow-level-1 md:p-10">
                 {/* Cabecera */}
-                <div className="text-center mb-8">
-                    <h1 className="font-heading text-4xl font-bold text-primary mb-2">Luxe & Blade</h1>
-                    <p className="text-foreground/70 text-sm">
+                <div className="mb-8 text-center">
+                    <h1 className="mb-2 font-heading text-4xl font-bold text-primary">
+                        Luxe & Blade
+                    </h1>
+                    <p className="text-sm text-foreground/70">
                         Accede a tu cuenta para gestionar tus citas.
                     </p>
                 </div>
 
                 {/* Formulario */}
-                <Form className="space-y-6" method='POST' action={store()}>
+                <Form className="space-y-6" method="POST" action={store()}>
                     {/* Email */}
                     <div className="space-y-2">
-                        <label className="block text-xs font-bold text-foreground uppercase tracking-wider">
+                        <label className="block text-xs font-bold tracking-wider text-foreground uppercase">
                             Correo Electrónico
                         </label>
                         <div className="relative">
-                            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                                 <Mail className="h-5 w-5 text-foreground/40" />
                             </div>
                             <input
                                 type="email"
                                 placeholder="tu@correo.com"
-                                className="block w-full pl-10 pr-3 py-2 border border-border rounded-sm text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors bg-background"
-                                name='email'
+                                className="block w-full rounded-sm border border-border bg-background py-2 pr-3 pl-10 text-sm transition-colors focus:border-primary focus:ring-2 focus:ring-primary focus:outline-none"
+                                name="email"
                             />
                         </div>
                     </div>
 
                     {/* Contraseña */}
                     <div className="space-y-2">
-                        <label className="block text-xs font-bold text-foreground uppercase tracking-wider">
+                        <label className="block text-xs font-bold tracking-wider text-foreground uppercase">
                             Contraseña
                         </label>
                         <div className="relative">
-                            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                                 <Lock className="h-5 w-5 text-foreground/40" />
                             </div>
                             <input
                                 type="password"
                                 placeholder="••••••••"
-                                className="block w-full pl-10 pr-3 py-2 border border-border rounded-sm text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors bg-background"
-                                name='password'
+                                className="block w-full rounded-sm border border-border bg-background py-2 pr-3 pl-10 text-sm transition-colors focus:border-primary focus:ring-2 focus:ring-primary focus:outline-none"
+                                name="password"
                             />
                         </div>
                     </div>
 
                     {/* Opciones extra */}
                     <div className="flex items-center justify-between text-sm">
-                        <label className="flex items-center gap-2 cursor-pointer">
-                            <input type="checkbox" className="rounded-sm border-border text-primary focus:ring-primary" name='remember' />
-                            <span className="text-foreground/70">Recordarme</span>
+                        <label className="flex cursor-pointer items-center gap-2">
+                            <input
+                                type="checkbox"
+                                className="rounded-sm border-border text-primary focus:ring-primary"
+                                name="remember"
+                            />
+                            <span className="text-foreground/70">
+                                Recordarme
+                            </span>
                         </label>
-                        <Link href="/auth/forgot-password" className="font-medium text-primary hover:underline transition-all">
+                        <Link
+                            href="/auth/forgot-password"
+                            className="font-medium text-primary transition-all hover:underline"
+                        >
                             ¿Olvidaste tu contraseña?
                         </Link>
                     </div>
@@ -67,21 +77,23 @@ export default function Login() {
                     {/* Botón Submit */}
                     <button
                         type="submit"
-                        className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground py-3 rounded-sm font-medium hover:bg-primary/90 transition shadow-level-1"
+                        className="flex w-full items-center justify-center gap-2 rounded-sm bg-primary py-3 font-medium text-primary-foreground shadow-level-1 transition hover:bg-primary/90"
                     >
                         Iniciar Sesión
-                        <ArrowRight className="w-4 h-4" />
+                        <ArrowRight className="h-4 w-4" />
                     </button>
                 </Form>
 
                 {/* Footer del Formulario */}
                 <div className="mt-8 text-center text-sm text-foreground/70">
                     ¿Aún no tienes una cuenta?{' '}
-                    <Link href="/auth/register" className="font-bold text-primary hover:underline uppercase tracking-wide">
+                    <Link
+                        href="/auth/register"
+                        className="font-bold tracking-wide text-primary uppercase hover:underline"
+                    >
                         Registrarse
                     </Link>
                 </div>
-
             </div>
         </div>
     );
