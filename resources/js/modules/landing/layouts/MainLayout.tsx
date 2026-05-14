@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Header from '../components/Header';
 
 interface MainLayoutProps {
     children: React.ReactNode;
@@ -8,13 +8,11 @@ interface MainLayoutProps {
 
 export default function MainLayout({ children }: MainLayoutProps) {
     return (
-        <div className="min-h-screen flex flex-col bg-background font-sans text-foreground">
+        <div className="flex min-h-screen flex-col bg-background font-sans text-foreground">
             <Header />
-            
-            <main className="flex-1 flex flex-col">
-                {children}
-            </main>
-            
+
+            <main className="flex flex-1 flex-col">{children}</main>
+
             <Footer />
         </div>
     );

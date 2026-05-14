@@ -1,52 +1,86 @@
-import { Mails, MapPinned, Phone } from 'lucide-react'
+import { Mails, MapPinned, Phone } from 'lucide-react';
 
 export default function Footer() {
     return (
-        <footer className="bg-primary text-primary-foreground py-12 mt-auto">
-            <div className="max-w-[1280px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-
+        <footer className="mt-auto bg-primary py-12 text-primary-foreground">
+            <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-8 px-6 md:grid-cols-3">
                 {/* Branding */}
                 <div>
-                    <h3 className="font-heading text-2xl font-bold mb-4 text-secondary">ScheduleManager</h3>
-                    <p className="font-sans text-sm opacity-80 max-w-xs">
-                        La experiencia perfecta de cuidado personal, gestionada con la precisión de la tecnología moderna.
+                    <h3 className="mb-4 font-heading text-2xl font-bold text-secondary">
+                        ScheduleManager
+                    </h3>
+                    <p className="max-w-xs font-sans text-sm opacity-80">
+                        La experiencia perfecta de cuidado personal, gestionada
+                        con la precisión de la tecnología moderna.
                     </p>
                 </div>
 
                 {/* Enlaces Rápidos */}
                 <div>
-                    <h4 className="font-sans font-semibold text-lg mb-4 text-secondary">Enlaces Rápidos</h4>
+                    <h4 className="mb-4 font-sans text-lg font-semibold text-secondary">
+                        Enlaces Rápidos
+                    </h4>
                     <ul className="space-y-2 font-sans text-sm opacity-80">
-                        <li><a href="#" className="hover:text-secondary transition">Sobre Nosotros</a></li>
-                        <li><a href="#" className="hover:text-secondary transition">Servicios</a></li>
-                        <li><a href="#" className="hover:text-secondary transition">Términos y Condiciones</a></li>
-                        <li><a href="#" className="hover:text-secondary transition">Política de Privacidad</a></li>
+                        <li>
+                            <a
+                                href="#"
+                                className="transition hover:text-secondary"
+                            >
+                                Sobre Nosotros
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                className="transition hover:text-secondary"
+                            >
+                                Servicios
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                className="transition hover:text-secondary"
+                            >
+                                Términos y Condiciones
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                className="transition hover:text-secondary"
+                            >
+                                Política de Privacidad
+                            </a>
+                        </li>
                     </ul>
                 </div>
 
                 {/* Contacto Simple */}
                 <div>
-                    <h4 className="font-sans font-semibold text-lg mb-4 text-secondary">Contacto</h4>
+                    <h4 className="mb-4 font-sans text-lg font-semibold text-secondary">
+                        Contacto
+                    </h4>
                     <ul className="space-y-2 font-sans text-sm opacity-80">
                         <li>
-                            <MapPinned className='inline-block mr-2' />
+                            <MapPinned className="mr-2 inline-block" />
                             Av. Principal 123, Centro
                         </li>
                         <li>
-                            <Phone className='inline-block mr-2' />
+                            <Phone className="mr-2 inline-block" />
                             +52 (55) 1234 5678
                         </li>
                         <li>
-                            <Mails className='inline-block mr-2' />
+                            <Mails className="mr-2 inline-block" />
                             hola@schedulemanager.com
                         </li>
                     </ul>
                 </div>
-
             </div>
 
-            <div className="max-w-[1280px] mx-auto px-6 mt-12 pt-6 border-t border-primary-foreground/20 text-center font-sans text-sm opacity-60">
-                &copy; {new Date().getFullYear()} ScheduleManager. Todos los derechos reservados.
+            <div className="mx-auto mt-12 max-w-[1280px] border-t border-primary-foreground/20 px-6 pt-6 text-center font-sans text-sm opacity-60">
+                &copy; {new Date().getFullYear()} ScheduleManager. Todos los
+                derechos reservados.
             </div>
         </footer>
     );

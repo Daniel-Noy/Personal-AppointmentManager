@@ -19,19 +19,18 @@ class LoginController extends Controller
     public function store(LoginRequest $request): RedirectResponse
     {
         $credentials = $request->validated();
-        $remember = $request->boolean("remember");
+        $remember = $request->boolean('remember');
 
         if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
- 
-            if(Auth::user()->isAdmin())
-            {
+
+            if (Auth::user()->isAdmin()) {
                 return redirect()->route('admin.dashboard');
             }
 
             return redirect()->intended(route('home'));
         }
- 
+
         return back()->withErrors([
             'auth' => 'Las credenciales ingresadas son incorrectas',
         ])->onlyInput('email');
@@ -42,8 +41,7 @@ class LoginController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+
         return redirect()->route('home');
     }
-
-    
 }
